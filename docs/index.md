@@ -227,14 +227,14 @@ Final conclusion
 
 <a href="https://github.com/TheGewehr/Assets-ZIP-Management-with-PhysFS">*GitHub - TheGewehr/Assets-ZIP-Management-with-PhysFS: This is the reseach that I made for Project 2, enjoi ;-)*</a>
 
-*Introducción | Activos-ZIP-Gestión-con-PhysFS (thegewehr.github.io)*
+<a href="https://thegewehr.github.io/Assets-ZIP-Management-with-PhysFS/">*Introducción | Activos-ZIP-Gestión-con-PhysFS (thegewehr.github.io)*</a>
 
-*ZIPManagement_PhysFS | Personal research about how implement and use PhysFS, in your project (aarongcprog.github.io)*
+<a href="https://aarongcprog.github.io/ZIPManagement_PhysFS/">*ZIPManagement_PhysFS | Personal research about how implement and use PhysFS, in your project (aarongcprog.github.io)*</a>
 
-*Assets Management with PhysFS | Assets-Zip-Management-with-PhysFS (perezenric.github.io)*
+<a href="https://perezenric.github.io/Assets-Zip-Management-with-PhysFS/">*Assets Management with PhysFS | Assets-Zip-Management-with-PhysFS (perezenric.github.io)*</a>
 
-*PhysicsFS (icculus.org)*
+<a href="https://www.icculus.org/physfs/">*PhysicsFS (icculus.org)*</a>
 
-*Physicsfs tutorial (github.com)*
+<a href="https://gist.github.com/Ybalrid/fb3453c997b4925d25dc9a1bf4f952b6">*Physicsfs tutorial (github.com)*</a>
 
-*PhysicsFS/PhysFS++ Tutorial – Gregory F. Martin (wordpress.com)*
+<a href="https://gregfmartin.wordpress.com/2017/01/02/physicsfsphysfs-basic-tutorial/">*PhysicsFS/PhysFS++ Tutorial – Gregory F. Martin (wordpress.com)*</a>
