@@ -1,4 +1,4 @@
-# PhysicsFS_Personal_Project
+# PhysicsFS Personal Project
 
 # Introduction
 
