@@ -225,7 +225,7 @@ Final conclusion
 
 # Documentation and references
 
-*GitHub - TheGewehr/Assets-ZIP-Management-with-PhysFS: This is the reseach that I made for Project 2, enjoi ;-)*
+<a href="https://github.com/TheGewehr/Assets-ZIP-Management-with-PhysFS">*GitHub - TheGewehr/Assets-ZIP-Management-with-PhysFS: This is the reseach that I made for Project 2, enjoi ;-)*</a>
 
 *Introducción | Activos-ZIP-Gestión-con-PhysFS (thegewehr.github.io)*
 
