@@ -1,5 +1,3 @@
-# PhysicsFS Personal Project
-
 # Introduction
 
 Hello, this is a little description to start with what is PhysicsFS, and why/how to use it. I hope you can find some interesting information here.
