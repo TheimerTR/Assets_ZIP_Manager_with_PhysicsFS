@@ -1,6 +1,6 @@
 # PhysicsFS_Personal_Project
 
-#Introduction
+# Introduction
 
 Hello, this is a little description to start with what is PhysicsFS, and why/how to use it. I hope you can find some interesting information here.
 
@@ -8,82 +8,74 @@ Firstly, we need to understand what an archive system is. In a simple way, it is
 
 For that last point, optimization is a primary thing to take into consideration when you are making a game or application. And people find lots of techniques in order to reduce the load charge to our PC’s, well trying to reduce code or making programs to help with it. Here is where we introduce PhysicsFS and its advantages.
 
-#What is PhysicsFS?
+# What is PhysicsFS?
 
 PhysicsFS is a program developed by Ryan C. Gordon, also known as Icculus. The first iteration of it was made in inspiration of Quake 3, which implemented an archive subsystem  that optimized the process of accessing information. 
 
 An example of it is like, imagine that you have a folder on your computer where you store all the files of your game. Inside that folder there are other folders with images, sounds, maps and other things. There are also some compressed files like .ZIP or .7z that contain more files inside. PhysicsFS is a tool that helps you organize and access all those files in an easy and safe way. With PhysicsFS you can tell your game where it can save new things (like your saved games or your options) and where it can read things that already exist (like the images or the sounds). Also, you can use the compressed files as if they were normal folders, without having to decompress them first. This way you save space and time. To use PhysicsFS in your game, you have to tell it at the beginning what folder you want to use to save things and what folders or compressed files you want to use to read things. Then you can open any file you want using a simple name, no matter where it is actually or if it is compressed or not.
 
-#Uses for it?
-##Into the market?
+# Uses for it?
+## Into the market?
 
 There are no clear uses of it in a general market apart from the videogame industry. But some uses than can be interesting from using it will be:
 
-To make programs that can access to execute scripts or plugins, without necessarily extracting them from the original archive. 
-To create portable applications that can work from a USB without leaving a trace in the system. 
-To reduce the space that consumes a normal folder without making it a ZIP, and the time that takes to access the information from the buffer. 
-In videogames?
+- To make programs that can access to execute scripts or plugins, without necessarily extracting them from the original archive. 
+- To create portable applications that can work from a USB without leaving a trace in the system. 
+- To reduce the space that consumes a normal folder without making it a ZIP, and the time that takes to access the information from the buffer. 
+
+## In videogames?
 
 Some examples of the use of PhysFS (like the author of it call it) in videogames are: 
 
-Aquaria en Steam (steampowered.com)
-Battle for Wesnoth en Steam (steampowered.com).
-Cave Story+ en Steam (steampowered.com).
-Frozen Synapse en Steam (steampowered.com)
-Gish en Steam (steampowered.com)
+- Aquaria en Steam (steampowered.com)
+- Battle for Wesnoth en Steam (steampowered.com).
+- Cave Story+ en Steam (steampowered.com).
+- Frozen Synapse en Steam (steampowered.com)
+- Gish en Steam (steampowered.com)
 
 And in relation with it, some graphic engines used it to like:
 
-LÖVE - Free 2D Game Engine (love2d.org)
-OGRE - Open Source 3D Graphics Engine
+- LÖVE - Free 2D Game Engine (love2d.org)
+- OGRE - Open Source 3D Graphics Engine
 
-##Platform support
+## Platform support
 
 Here is a list from PhysicsFS (icculus.org) that shows the compatibility of that library:
 
-Support for .ZIP files (PkZip/Info-ZIP/WinZip compatible).
-Version 1.1+: support for .7z files (7zip/lzma).
-Version 3.0+: support for .iso files (CD-ROM image files).
-Version 3.0+: support for .vdf files (Gothic/Gothic II).
-Version 3.0+: support for .slb files (Independence War).
-Support for the Build Engine's GRP format.
-Support for Quake 1 and Quake 2's PAK file format.
-Support for Descent 1 and Descent 2's HOG file format.
-Support for Descent 1 and Descent 2's MVL file format.
-Support for Doom WAD files.
-Support for access to the native filesystem.
-Version 1.1+: Fully supports Unicode filenames.
-Compiles/runs on GNU/Linux (x86, PPC, MIPS, Sparc, Alpha, Itanium, and x86-64 tested; gcc).
-Compiles/runs on Windows XP and later (x86 and x64 tested; Visual Studio, Cygwin, and MinGW).
-Compiles/runs on WinRT, UWP, Windows Phone, Windows Store: (x86-64 and ARM tested; Visual Studio).
-Compiles/runs on macOS (x86, PPC, and x86-64 tested; gcc and clang).
-Compiles/runs on iOS (iPhone, iPad tested; xcode).
-Compiles/runs on OS/2, eComStation, ArcaOS (x86 tested; EMX and OpenWatcom).
-Compiles/runs on Haiku (x86 tested; gcc2 and gcc4)
-Compiles/runs on QNX 7 (x86, x86-64 and ARM tested).
-Compiles/runs on Android.
-Compiles/runs on the Nintendo Switch! (Contact Ryan for source code).
-Compiles/runs on Emscripten.
-Compiles/runs on generic Unix, like FreeBSD, OpenBSD, Solaris, etc (x86 and Alpha tested; gcc).
-Up to version 1.0: Compiles/runs on MacOS 8/9 (PPC tested; CodeWarrior 6).
-Up to version 2.0: Compiles/runs on Windows 95 and later (x86 and x64 tested; Visual Studio, Cygwin, and MinGW).
-Up to version 2.0: Compiles/runs on Microsoft PocketPC.
-Up to version 2.0: Compiles/runs on BeOS, YellowTab, Zeta, and Haiku (x86 tested; gcc).
-Third parties have reported easily porting PhysicsFS to PlayStation and Xbox consoles (Contact Ryan about lending him a devkit!).
-May compile and run elsewhere with little to no modification. Success stories and patches are welcome.
+- Support for .ZIP files (PkZip/Info-ZIP/WinZip compatible).
+- Version 1.1+: support for .7z files (7zip/lzma).
+- Version 3.0+: support for .iso files (CD-ROM image files).
+- Version 3.0+: support for .vdf files (Gothic/Gothic II).
+- Version 3.0+: support for .slb files (Independence War).
+- Support for the Build Engine's GRP format.
+- Support for Quake 1 and Quake 2's PAK file format.
+- Support for Descent 1 and Descent 2's HOG file format.
+- Support for Descent 1 and Descent 2's MVL file format.
+- Support for Doom WAD files.
+- Support for access to the native filesystem.
+- Version 1.1+: Fully supports Unicode filenames.
+- Compiles/runs on GNU/Linux (x86, PPC, MIPS, Sparc, Alpha, Itanium, and x86-64 tested; gcc).
+- Compiles/runs on Windows XP and later (x86 and x64 tested; Visual Studio, Cygwin, and MinGW).
+- Compiles/runs on WinRT, UWP, Windows Phone, Windows Store: (x86-64 and ARM tested; Visual Studio).
+- Compiles/runs on macOS (x86, PPC, and x86-64 tested; gcc and clang).
+- Compiles/runs on iOS (iPhone, iPad tested; xcode).
+- Compiles/runs on OS/2, eComStation, ArcaOS (x86 tested; EMX and OpenWatcom).
+- Compiles/runs on Haiku (x86 tested; gcc2 and gcc4)
+- Compiles/runs on QNX 7 (x86, x86-64 and ARM tested).
+- Compiles/runs on Android.
+- Compiles/runs on the Nintendo Switch! (Contact Ryan for source code).
+- Compiles/runs on Emscripten.
+- Compiles/runs on generic Unix, like FreeBSD, OpenBSD, Solaris, etc (x86 and Alpha tested; gcc).
+- Up to version 1.0: Compiles/runs on MacOS 8/9 (PPC tested; CodeWarrior 6).
+- Up to version 2.0: Compiles/runs on Windows 95 and later (x86 and x64 tested; Visual Studio, Cygwin, and MinGW).
+- Up to version 2.0: Compiles/runs on Microsoft PocketPC.
+- Up to version 2.0: Compiles/runs on BeOS, YellowTab, Zeta, and Haiku (x86 tested; gcc).
+- Third parties have reported easily porting PhysicsFS to PlayStation and Xbox consoles (Contact Ryan about lending him a devkit!).
+- May compile and run elsewhere with little to no modification. Success stories and patches are welcome.
 
-#Activity
-##Setup for Visual Studio:
+# Activity
 
-Download the source code of PhysicsFS from the GitHub repository1 or from the official website2. Choose the version you want to use, but I recommend the latest one (3.0.2).
-Unzip the ZIP file you downloaded and open the folder physfs-3.0.2 (or the one that matches your version).
-Inside that folder, look for the file physfs.sln and open it with Visual Studio. This file contains the project of PhysicsFS to compile the library and some examples.
-Select the configuration you want to use (Debug or Release) and the platform (Win32 or x64) in the drop-down menu of Visual Studio.
-Right-click on the project physfs-static and select Build. This will generate a file called physfs.lib in the lib folder inside your PhysicsFS folder.
-Now you can use this file to link your program with PhysicsFS. To do this, you need to add the path to the include folder inside your PhysicsFS folder to the additional include directories options of your project (in Properties -> C/C++ -> General). You also need to add the path to the lib folder to the additional library directories options of your project (in Properties -> Linker -> General). Finally, you need to add the name of the file physfs.lib to the additional dependencies options of your project (in Properties -> Linker -> Input).
-You can now use PhysicsFS in your program by including the file physfs.h in your source files and calling
-
-##TODO:
+## TODO:
 
 **TODO 0:**
 
@@ -229,9 +221,9 @@ To play it, call LoadFx(pathName) in scene.cpp and then play it with PlayFx(unsi
 Conclusion
 Final conclusion
 
-#Found problems
+# Found problems
 
-#Documentation and references
+# Documentation and references
 
 *GitHub - TheGewehr/Assets-ZIP-Management-with-PhysFS: This is the reseach that I made for Project 2, enjoi ;-)*
 
