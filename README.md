@@ -9,4 +9,4 @@
   I am Alberto Hidalgo, a current second year student to become video game developer, at the center of CITM-UPC Terrassa, Catalonia, Spain. In the future I’m focused to become a programmer in the industry of gaming, and make my own little experiences.   
   
   ## Licenses  
-  This project is licensed with an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check LICENSE for more details for it.
+  This project is licensed with an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check <a href="https://github.com/TheimerTR/PhysicsFS_Personal_Project/blob/main/LICENSE">LICENSE</a> for more details for it.
