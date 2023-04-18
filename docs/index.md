@@ -82,18 +82,18 @@ Put the need libraries to visual studio:
 Properties → Vinculator → General → Additional working directories: 
 
 Up box:
-$(ProjectDir)Source\External\PhysFS\libx86
+- $(ProjectDir)Source\External\PhysFS\libx86
 
 Down box:
-C:\Users\???\???\PhysFS\Game\Source\External\PhysFS\libx86
+- C:\Users\???\???\PhysFS\Game\Source\External\PhysFS\libx86
 
 Properties → Vinculator → Entrada → Additional dependencies:
 
 Up box:
-physfs.lib
+- physfs.lib
 
 Mid box:
-physfs.lib
+- physfs.lib
 
 **TODO 1:**
 
@@ -101,13 +101,13 @@ Into the PhysicsFSAssetManager.cpp will initialize the PhysicsFS Library API, de
 
 You will need this functions on the ModuleAssetsManager():
 
-PHYSFS_init(NULL)
-PHYSFS_mount(“Name of the asset folder.zip”, NULL, 1)
-PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode())
+- PHYSFS_init(NULL)
+- PHYSFS_mount(“Name of the asset folder.zip”, NULL, 1)
+- PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode())
 
 You will need this functions on the ~ModuleAssetsManager():
 
-PHYSFS_deinit();
+- PHYSFS_deinit();
 
 Hint: 
 
@@ -123,7 +123,7 @@ return false;
 
 Now we will add the path to search the Assets.zip, this will go into the Awake function, and you need:
 
-PHYSFS_addToSearchPath("...", 1);
+- PHYSFS_addToSearchPath("...", 1)
 
 Hint:
 
@@ -133,52 +133,58 @@ Remember the folder that you are at the moment, you are into Output already.
 
 Next we will open the read file in the LoadData(), to open you will need:
 
-PHYSFS_file* ... //This is to save the data from the read file.
-PHYSFS_openRead(...) //This function is need to read the path file.
+- PHYSFS_file* ... //This is to save the data from the read file
+
+- PHYSFS_openRead(...) //This function is need to read the path file
 
 Now it's open, will check if the data file is open correctly and no nullptr. If is not null, inside we will extract the file length in bytes, the tool to do it:
 
-int ... //to save the number of bytes
-PHYSFS_fileLength(...) //to read the size of bytes of the data file.
+- int ... //to save the number of bytes
+
+- PHYSFS_fileLength(...) //to read the size of bytes of the data file.
 
 Finally, we will allocate memory with the size of the file to the buffer, things needed:
 
-buffer //the actual buffer that the function gives
-new char[(uint)...] //the size of the file in a char style
+- buffer //the actual buffer that the function gives
+
+- new char[(uint)...] //the size of the file in a char style
 
 **TODO 4:**
 
 Now we will read the data with a physFS file, for this is needed:
 
-uint ... //to save into it the number of objects readed form the physFS file.
-PHYSFS_read(..., ..., 1, (uint)...) //the function that will read the file with PhysFS, return the number of objects readed
+- uint ... //to save into it the number of objects readed form the physFS file
+
+- PHYSFS_read(..., ..., 1, (uint)...) //the function that will read the file with PhysFS, return the number of objects readed
 
 Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in that yes, will return to the function the number of objects readed with PhysFS, and close the data file with:
 
-PHYSFS_close(...)
+- PHYSFS_close(...)
 
 **TODO 5:**
 
 Now that we know how work our function, it's time tu use them. Firstly, will create in the start functon of the scene.cpp:
 
-Char* buffer
-pugi::xml_document ...
+- char* buffer
+- pugi::xml_document ...
 
 And next, will call the LoadData() function of the AssetsManager.cpp, and save the bytes that return the PhysFS file:
 
-int ...
-app->assetsManager->LoadData("data.xml", &buffer) //That data.xml file, is a type of file that saves the things that are included inside the Assets folder in a .xml.
+- int ...
+
+- app->assetsManager->LoadData("data.xml", &buffer) //That data.xml file, is a type of file that saves the things that are included inside the Assets folder in a .xml.
 
 Now load the data form memory and save it, you will need:
 
-pugi::xml_parse_result ... //where you will save the data
-(...).load_buffer(buffer, ...) //the function that will charge the things form memory
+- pugi::xml_parse_result ... //where you will save the data
+
+- (...).load_buffer(buffer, ...) //the function that will charge the things form memory
 
 Finally we will RELEASE the buffer (like: RELEASE_ARRAY(buffer)), and load all of the assets of our game:
 
-LoadTexFile(...);
-LoadFxFile(...);
-LoadMusFile(...);
+- LoadTexFile(...);
+- LoadFxFile(...);
+- LoadMusFile(...);
 
 **TODO 6:**
 
