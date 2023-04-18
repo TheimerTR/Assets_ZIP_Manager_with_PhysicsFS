@@ -114,9 +114,13 @@ Hint:
 Here at the same time of making the initialization you can check if there is any error. Kind of:
 
 if(??? == 0)
+
 {
+
 LOG("Error message: %s\n", ???;
+
 return false;
+
 }
 
 **TODO 2:**
@@ -190,18 +194,19 @@ Finally we will RELEASE the buffer (like: RELEASE_ARRAY(buffer)), and load all o
 
 Now we will load some Images, music and fx, to do that we will charge them with the AssetsManager.cpp:
 
-- Images:
+- **Images:**
 
-Instead of using IMG_Load(...), will use IMG_LOAD_RW(app->assetsManager->Load(...), 1)
+  - Instead of using IMG_Load(...), will use IMG_LOAD_RW(app->assetsManager->Load(...), 1)
 
-- Audio:
+- **Audio:**
+
   **FX:**
   
-  Instead of using Mix_LoadWAV(...), will use Mix_LoadWAV_RW(app->assetsManager->Load(...), 1)
+  - Instead of using Mix_LoadWAV(...), will use Mix_LoadWAV_RW(app->assetsManager->Load(...), 1)
   
   **Music:**
   
-  Instead of using Mix_LoadMUS(...), will use Mix_LoadMUS_RW(app->assetsManager->Load(...), 1)
+  - Instead of using Mix_LoadMUS(...), will use Mix_LoadMUS_RW(app->assetsManager->Load(...), 1)
 
 # Conclusion
 
