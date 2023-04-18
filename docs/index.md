@@ -217,7 +217,7 @@ Now we will load some Images, music and fx, to do that we will charge them with 
   That library has two big problems:
   
   - There is no information on internet anywhere. The creator of PhysicsFS API, has not a truthly tutorial or setps to follow in order to set up a proyect. Or a little more detail in some of the description or uses of functions, making it harder to take a general aspect of what to do.
-  - For begginers is kind of difficult to know what to do, no tutorials on youtube, no friendly info pages or a greate range of webs to search in (in my search engine there where literally 9 pages of PhysFS webs in all the internet).
+  - For begginers is kind of difficult to get into it, no tutorials on Youtube, no friendly info pages or a great range of webs to search in (in my search engine there where literally 9 pages of PhysFS webs in all the internet, where the half of them where questions about it).
 
 # Documentation and references
 
@@ -234,3 +234,5 @@ Now we will load some Images, music and fx, to do that we will charge them with 
 <a href="https://gist.github.com/Ybalrid/fb3453c997b4925d25dc9a1bf4f952b6">*Physicsfs tutorial (github.com)*</a>
 
 <a href="https://gregfmartin.wordpress.com/2017/01/02/physicsfsphysfs-basic-tutorial/">*PhysicsFS/PhysFS++ Tutorial – Gregory F. Martin (wordpress.com)*</a>
+
+<a href="https://github.com/Draquian/PhysFS_Roger_Salas/tree/1.0">*PhysFS_Roger_Salas (github.com)*</a>
