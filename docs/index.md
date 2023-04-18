@@ -210,7 +210,14 @@ Now we will load some Images, music and fx, to do that we will charge them with 
 
 # Conclusion
 
+ PhysFS is a library, that has not too much utility far from reducing the size of your proyect or making it safer. But, in general aspects, it's a great implementation for our projects, and maybe can make a difference in the final product.
+
 # Found problems
+
+  That library has two big problems:
+  
+  - There is no information on internet anywhere. The creator of PhysicsFS API, has not a truthly tutorial or setps to follow in order to set up a proyect. Or a little more detail in some of the description or uses of functions, making it harder to take a general aspect of what to do.
+  - For begginers is kind of difficult to know what to do, no tutorials on youtube, no friendly info pages or a greate range of webs to search in (in my search engine there where literally 9 pages of PhysFS webs in all the internet).
 
 # Documentation and references
 
