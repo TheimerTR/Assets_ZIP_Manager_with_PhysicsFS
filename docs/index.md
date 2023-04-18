@@ -97,13 +97,17 @@ physfs.lib
 
 **TODO 1:**
 
-Into the PhysicsFSAssetManager.cpp will initialize the PhysicsFS Library API and also mount the Assets. Here you have to make sure that everything is ok, and don’t give any errors. 
+Into the PhysicsFSAssetManager.cpp will initialize the PhysicsFS Library API, destroy it and also mount the Assets. Here you have to make sure that everything is ok, and don’t give any errors. 
 
-You will need this functions:
+You will need this functions on the ModuleAssetsManager():
 
 PHYSFS_init(NULL)
-PHYSFS_mount(“Name of the asset folder.pak”, NULL, 1)
+PHYSFS_mount(“Name of the asset folder.zip”, NULL, 1)
 PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode())
+
+You will need this functions on the ~ModuleAssetsManager():
+
+PHYSFS_deinit();
 
 Hint: 
 
@@ -117,107 +121,83 @@ return false;
 
 **TODO 2:**
 
- Now, we will do the loadAssets(const char* pathName) function. First, you need to know if the path that we gave to the function already exists. For that we will do the same of the last step but with that function:
+Now we will add the path to search the Assets.zip, this will go into the Awake function, and you need:
 
-PHYSFS_exists(pathName)
+PHYSFS_addToSearchPath("...", 1);
 
 Hint:
 
-In the error code you can also put the path that we already know:
-
-
-LOG("Error message: %s\n", ?, ???;
-return NULL;
-
+Remember the folder that you are at the moment, you are into Output already.
 
 **TODO 3:**
 
-Then if there is no errors, can we open the path with:
+Next we will open the read file in the LoadData(), to open you will need:
 
-PHYSFSRWOPS_openRead(pathName)
+PHYSFS_file* ... //This is to save the data from the read file.
+PHYSFS_openRead(...) //This function is need to read the path file.
 
-And save it with a type of:
+Now it's open, will check if the data file is open correctly and no nullptr. If is not null, inside we will extract the file length in bytes, the tool to do it:
 
-SDL_RWops* name
+int ... //to save the number of bytes
+PHYSFS_fileLength(...) //to read the size of bytes of the data file.
 
-Now check that the file name  is not == NULL with an error, if this is the case return NULL.
+Finally, we will allocate memory with the size of the file to the buffer, things needed:
 
-And finally return name to the function. 
+buffer //the actual buffer that the function gives
+new char[(uint)...] //the size of the file in a char style
 
 **TODO 4:**
 
-Repeat the process of the loadAssets(), but now with loadXML(const char* namePath, char** bufferInfo). 
+Now we will read the data with a physFS file, for this is needed:
 
-But now you will need to use PHYSFS_exists(namePath), first check for errors, and then open the file with PHYSFS_openRead(namePath), with a type PHYSFS_file* fileName. Check if it is not equal to NULL, in case that is it, make a LOG error message. 
+uint ... //to save into it the number of objects readed form the physFS file.
+PHYSFS_read(..., ..., 1, (uint)...) //the function that will read the file with PhysFS, return the number of objects readed
+
+Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in that yes, will return to the function the number of objects readed with PhysFS, and close the data file with:
+
+PHYSFS_close(...)
 
 **TODO 5:**
 
-Now see if the fileName has ended to read or not, in case of not, you will need to save inside the size in bytes. You will need PHYSFS_fileLength(fileName), and save it in a PHYSFS_sint64 sizeName.
+Now that we know how work our function, it's time tu use them. Firstly, will create in the start functon of the scene.cpp:
 
-With that sizeName, will now pass that info to the bufferInfo, bufferInfo now is the point of the read that the program is at the moment, and sizeName is the máximum size that can be read.
+Char* buffer
+pugi::xml_document ...
+
+And next, will call the LoadData() function of the AssetsManager.cpp, and save the bytes that return the PhysFS file:
+
+int ...
+app->assetsManager->LoadData("data.xml", &buffer) //That data.xml file, is a type of file that saves the things that are included inside the Assets folder in a .xml.
+
+Now load the data form memory and save it, you will need:
+
+pugi::xml_parse_result ... //where you will save the data
+(...).load_buffer(buffer, ...) //the function that will charge the things form memory
+
+Finally we will RELEASE the buffer (like: RELEASE_ARRAY(buffer)), and load all of the assets of our game:
+
+LoadTexFile(...);
+LoadFxFile(...);
+LoadMusFile(...);
 
 **TODO 6:**
 
-With bufferInfo and sizeName, we will be capable of knowing the reading bytes that we have at the moment. Use the function of PHYSFS_readBytes(fileName, *bufferInfo, sizeName), and save it with PHYSFS_sint64 bytesReaded.
+Now we will load some Images, music and fx, to do that we will charge them with the AssetsManager.cpp:
 
-Check for errors, but in this case is not == NULL, is == -1.
+- Images:
 
-**TODO 7:**
+Instead of using IMG_Load(...), will use IMG_LOAD_RW(app->assetsManager->Load(...), 1)
 
-Now will check if the file has ended to be readed or not, in case of yes, the bytesReaded and sizeName had to be the same, inside see if the fileName is not closed with PHYSFS_close(fileName) == 0 (in case of yes make an error LOG), and return the actual size of bytes to the function with bytesReaded.
+- Audio:
+  **FX:**
+  
+  Instead of using Mix_LoadWAV(...), will use Mix_LoadWAV_RW(app->assetsManager->Load(...), 1)
+  
+  **Music:**
+  
+  Instead of using Mix_LoadMUS(...), will use Mix_LoadMUS_RW(app->assetsManager->Load(...), 1)
 
-Else if the file hasn't ended to be readed, the file has to be closed with PHYSFS_close(fileName), release the buffer memory used with RELEASE_ARRAY(bufferInfo), and return 0 to the function.
-
-**TODO 8:**
-
-Now we have everything to use our functions working, try to load a texture in Texture.cpp Load(), first create an empty texture with SDL_Texture* textureName = NULL;
-
-Now with app->PhysicsFSAssetManager->LoadAsset(pathName) that pathName is the path to the texture that the function gives us. Save that info into a SDL_RWops* rwName and use it like normal with a SDL_Surface* surfaceName = IMG_Load_RW(rwName, 0). To try it use that code:
-
-if(surfaceName  == NULL)
-{
-LOG("Couldn’t load surface path: %s. IMG_Load: %s", pathName, IMG_GetError());
-}
-else
-{
-textureName = LoadSurface(surfaceName);
-SDL_FreeSurface(surfaceName);
-}
-
-//Here remember to close de structure
-SDL_RWclose(rwName);
-
-return textureName ;
-
-**TODO 9:**
-
-First create a List<Mix_Chunk *> fxSound in Audio.h;
-
-And repeat process of TODO 8 with Audio.cpp LoadFx():
-
-SDL_RWops* audioName =  app->assetsManager->LoadAsset(pathName);
-Mix_Chunk* FxName= Mix_LoadWAV_RW(audioName , 0);
-
-if(FxName == NULL)
-{
-LOG("Couldn’t load music path: %s. Mix_GetError(): %s\n", pathName, Mix_GetError());
-ret = false;
-}
-else
-{
-fxSound.Add(FxName);
-ret = fxSound.Count();
-}
-
-//Here remember to close de structure
-SDL_RWclose(audioName);
-
-return ret;
-
-Finally This is an optional TODO 9 if you want, already is an example with the key P.
-To play it, call LoadFx(pathName) in scene.cpp and then play it with PlayFx(unsigned int id, int repeat) with any key input.
-Conclusion
-Final conclusion
+# Conclusion
 
 # Found problems
 
