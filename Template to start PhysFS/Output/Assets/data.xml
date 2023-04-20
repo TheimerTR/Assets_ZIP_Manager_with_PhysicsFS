@@ -1,0 +1,19 @@
+
+<data>
+<texture 
+    file = "textures/goldCoin.png"
+    file2 = "textures/player1.png"
+    file3 = "textures/player2.png"
+    file4 = "textures/test.png"
+    >
+</texture>
+<Maps 
+    file = "Maps/hello.tmx"
+    file2 = "Maps/MapMetadata.png"
+    file3 = "Maps/MapTemplate.tmx"
+    file4 = "Maps/tmw_desert_spacing.png"
+    >
+</Maps>
+<fx file="Audio/Fx/hello_man.wav"/>
+<mus file="Audio/Music/music_spy.ogg"/>
+</data>
