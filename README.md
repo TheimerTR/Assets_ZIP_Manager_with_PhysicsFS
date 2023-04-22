@@ -1,4 +1,4 @@
-# PhysicsFS_Personal_Project
+# Assets_ZIP_Manager_with_PhysicsFS
  ## Description 
  
   Hi! Welcome to this repository! Here you will find a short implementation of PhysicsFS in video games. That project was made for an activity of the assignment  Project 2 in the center CITM-UPC, Terrassa. 

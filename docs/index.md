@@ -8,7 +8,7 @@ For that last point, optimization is a primary thing to take into consideration 
 
 # What is PhysicsFS?
 
-PhysicsFS is a program developed by Ryan C. Gordon, also known as Icculus. The first iteration of it was made in inspiration of Quake 3, which implemented an archive subsystem that optimized the process of accessing information, with a Zip folder system reader. 
+PhysicsFS is a program developed by Ryan C. Gordon, also known as  <a href="https://github.com/icculus">*Icculus*</a>. The first iteration of it was made in inspiration of Quake 3, which implemented an archive subsystem that optimized the process of accessing information, with a Zip folder system reader. 
 
 ![diagram1](https://raw.githubusercontent.com/TheimerTR/PhysicsFS_Personal_Project/main/docs/images/Rayan_repo_git.png)
 ![diagram2](https://raw.githubusercontent.com/TheimerTR/PhysicsFS_Personal_Project/main/docs/images/Rar_logo.png)
