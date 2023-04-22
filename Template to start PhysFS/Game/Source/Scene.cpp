@@ -29,11 +29,9 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
-	for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
-	{
-		item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
-		item->parameters = itemNode;
-	}
+
+	item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
+	item->parameters = config.child("item");
 
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
@@ -63,7 +61,6 @@ bool Scene::Start()
 	LoadTexFile(file);
 	LoadFxFile(file);
 	LoadMusFile(file);
-	LoadMapFile(file);
 
 	// L04: DONE 7: Set the window title with map/tileset info
 	SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
@@ -138,7 +135,6 @@ void Scene::LoadTexFile(const pugi::xml_document& dataFile)
 	pugi::xml_node tex = dataFile.child("data").child("texture");
 	item->texture = app->tex->Load(tex.attribute("file").as_string());
 	player->texture = app->tex->Load(tex.attribute("file2").as_string());
-	app->map->set->texture = app->tex->Load(tex.attribute("mapText").as_string());
 }
 
 void Scene::LoadFxFile(const pugi::xml_document& dataFile)
@@ -151,11 +147,4 @@ void Scene::LoadMusFile(const pugi::xml_document& dataFile)
 {
 	pugi::xml_node mus = dataFile.child("data").child("mus");
 	app->audio->PlayMusic(mus.attribute("file").as_string());
-}
-
-void Scene::LoadMapFile(const pugi::xml_document& dataFile)
-{
-	pugi::xml_node map = dataFile.child("data").child("map");
-	app->map->mapFileName = map.attribute("mapFileName").as_string();
-	app->map->mapFolder = map.attribute("mapFolder").as_string();
 }

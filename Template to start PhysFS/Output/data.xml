@@ -1,0 +1,10 @@
+
+<data>
+<texture 
+    file = "Textures/goldCoin.png"
+    file2 = "Textures/player1.png"
+    >
+</texture>
+<fx file="Audio/Fx/hello_man.wav"/>
+<mus file="Audio/Music/music_spy.ogg"/>
+</data>

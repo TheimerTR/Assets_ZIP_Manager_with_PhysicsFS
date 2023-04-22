@@ -43,8 +43,6 @@ public:
 	//load and play the music
 	void LoadMusFile(const pugi::xml_document& dataFile);
 
-	void LoadMapFile(const pugi::xml_document& dataFile);
-
 public:
 
 	//L02: DONE 3: Declare a Player attribute 
@@ -53,12 +51,6 @@ public:
 
 private:
 	SDL_Texture* img;
-
-	SDL_Texture* texture1 = nullptr;
-	SDL_Texture* texture2 = nullptr;
-	SDL_Texture* texture3 = nullptr;
-	SDL_Texture* texture4 = nullptr;
-
 };
 
 #endif // __SCENE_H__
