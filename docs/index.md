@@ -161,7 +161,7 @@ Now we will read the data with a physFS file, for this is needed:
 
 - PHYSFS_read(..., ..., 1, ...) //the function that will read the file with PhysFS, return the number of objects readed
 
-Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in that yes, will return to the function the number of objects readed with PhysFS:
+Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in case that yes, will return to the function the number of objects readed with PhysFS:
 
 - ret = numReaded
 
