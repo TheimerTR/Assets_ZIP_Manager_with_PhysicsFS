@@ -105,7 +105,7 @@ You will need this functions on the AssetsManager():
 - PHYSFS_mount(“Name of the asset folder.zip”, NULL, 1)
 - PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode())
 
-You will need this functions on the ~ModuleAssetsManager():
+You will need this functions on the ~AssetsManager():
 
 - PHYSFS_deinit();
 
