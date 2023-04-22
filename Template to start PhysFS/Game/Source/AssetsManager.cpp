@@ -1,89 +1,105 @@
 #include "App.h"
 #include "AssetsManager.h"
 
+#include "Defs.h"
+#include "Log.h"
+
+#include <iostream>
+#include <sstream>
+
+//Some links of utility
+//https://icculus.org/physfs/
+//https://icculus.org/physfs/docs/html/physfs_8h.html
+//https://gist.github.com/Ybalrid/fb3453c997b4925d25dc9a1bf4f952b6
+//https://gregfmartin.wordpress.com/2017/01/02/physicsfsphysfs-basic-tutorial/
+//https://wiki.libsdl.org/SDL_RWops
 
 AssetsManager::AssetsManager() : Module()
 {
 	name = ("assetsManager");
-	
-	//https://icculus.org/physfs/
-	//https://icculus.org/physfs/docs/html/physfs_8h.html
 
-	/*TODO 1: initialize physFS*/
+	//TODO 1: initialize physicsFS Library
 	PHYSFS_init(nullptr);
 
-	//After initializing physFS, you can uncomment this function (only required in Debug)
-	//Create the default path
-	PHYSFS_mount(".", nullptr, 1);
+	//This function create the default path to search, in this case the Output, that is the default program path too
+	if (PHYSFS_mount(".", nullptr, 1) == 0) {
+		{
+			LOG("Error message: %s\n", PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode()));
+		}
+	}
 }
-
 
 AssetsManager::~AssetsManager()
 {
-	/*TODO 1: close any file open for physFS*/
+	//TODO 1: Close all files opened by physicsFS
 	PHYSFS_deinit();
 }
 
 bool AssetsManager::Awake(pugi::xml_node& config)
 {
-	/*TODO 2: add the search path*/
-	PHYSFS_addToSearchPath("Assets.zip", 1);
+	//TODO 2: Now add the path to search our Assets folder that now is .zip
+	//HINT: The path is the same that we actually are: Output -> Assets.zip
+	if (PHYSFS_addToSearchPath("Assets.zip", 1) == 0) 
+	{
+		LOG("Error message: %s\n", PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode()));
+		return false;
+	}
 
 	return true;
 }
 
-
-bool AssetsManager::CleanUp()
-{
-	return false;
-}
-
 SDL_RWops* AssetsManager::Load(const char* path) const
 {
-	char* buffer;
-	uint bytes = LoadData(path, &buffer); //get the size of the data from the function Load Data
+	char* buffer; //The buffer is the memory space that we will need in order to access our file
+	uint numbytes = LoadData(path, &buffer); //Here we get the size in memory of the data from our file in bytes
 
-	//https://wiki.libsdl.org/SDL_RWops
-
-	if (bytes > 0)
+	if (numbytes > 0)
 	{
-		SDL_RWops* r = SDL_RWFromConstMem(buffer, bytes);
+		SDL_RWops* RWop = SDL_RWFromConstMem(buffer, numbytes); //With the number of bytes and the buffer extracts the info from our file
 
-		return r;
+		return RWop;
 	}
 	else
+	{
 		return nullptr;
-
+	}
 }
-
 
 uint AssetsManager::LoadData(const char* path, char** buffer) const
 {
 	uint ret = 0;
 	
-	/*TODO 3: Open and read the file*/
-	PHYSFS_file* data_file = PHYSFS_openRead(path);
+	//TODO 3: Here we will open the file in question
+	PHYSFS_file* fileData = PHYSFS_openRead(path);
 
-	if (data_file != nullptr)//look if the file is not null
+	if (fileData != nullptr)//Check if it has open the file correctly
 	{
-		int file_lenght = PHYSFS_fileLength(data_file); //read the file length to reserve the bytes we need.
+		uint file_lenght = PHYSFS_fileLength(fileData); //Now we extract the size of our file to give it to the buffer
 
-		*buffer = new char[(uint)file_lenght]; //allocate memory in a buffer of the size of the file
+		*buffer = new char[file_lenght]; //Pass the size of the file to the buffer in order to alocate memory
 
-		/*TODO 4: read the data formm physFS*/
-		uint readed = PHYSFS_read(data_file, *buffer, 1, (uint)file_lenght); //read data from a physFS filehandle
+		//TODO 4: Now we will read the data form the physFS file
+		uint numReaded = PHYSFS_read(fileData, *buffer, 1, file_lenght); //Read the data in question
 
-		if (readed != file_lenght) //if file lenght is not the same that one was readed, thats an error
+		if (numReaded != file_lenght) //Here we check if the two sizes are the same, theorically they have to be, but in case that not is an error
 		{
-			RELEASE(buffer); //clean the buffer
+			RELEASE(buffer); //If they are not the same clean the memory buffer
+			LOG("PhysFS: The size of the file and the number of things readed are not the same");
 		}
-		else
-			ret = readed; //return the size of the data
+		else 
+		{
+			ret = numReaded; //In case that all is alright return the number of the size readed to the function
+		}
 
-		PHYSFS_close(data_file); //close the physFS used to read the data
+		PHYSFS_close(fileData); //Close the PhysFS file that we opened before
 	}
 
 	return ret;
+}
+
+bool AssetsManager::CleanUp()
+{
+	return false;
 }
 
 

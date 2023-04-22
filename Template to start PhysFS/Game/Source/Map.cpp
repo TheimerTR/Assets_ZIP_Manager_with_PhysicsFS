@@ -261,7 +261,7 @@ bool Map::LoadTileSet(pugi::xml_node mapFile){
 
         // L04: DONE 4: Load Tileset image
         SString tmp("%s%s", mapFolder.GetString(), tileset.child("image").attribute("source").as_string());
-        set->texture = app->tex->Load(tmp.GetString());
+        set->texture = app->tex->LoadMAP(tmp.GetString());
 
         mapData.tilesets.Add(set);
     }

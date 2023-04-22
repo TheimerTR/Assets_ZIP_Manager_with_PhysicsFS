@@ -34,13 +34,28 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	//load the texture
+	void LoadTexFile(const pugi::xml_document& dataFile);
+
+	//load the fx
+	void LoadFxFile(const pugi::xml_document& dataFile);
+
+	//load and play the music
+	void LoadMusFile(const pugi::xml_document& dataFile);
+
 public:
 
 	//L02: DONE 3: Declare a Player attribute 
 	Player* player;
+	Item* item;
 
 private:
 	SDL_Texture* img;
+
+	SDL_Texture* texture1 = nullptr;
+	SDL_Texture* texture2 = nullptr;
+	SDL_Texture* texture3 = nullptr;
+	SDL_Texture* texture4 = nullptr;
 
 };
 

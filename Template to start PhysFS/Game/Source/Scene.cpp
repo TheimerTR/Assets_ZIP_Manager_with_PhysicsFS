@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "Scene.h"
 #include "EntityManager.h"
+#include "AssetsManager.h"
 #include "Map.h"
 
 #include "Defs.h"
@@ -30,7 +31,7 @@ bool Scene::Awake(pugi::xml_node& config)
 	// Check https://pugixml.org/docs/quickstart.html#access
 	for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
 	{
-		Item* item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
+		item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
 		item->parameters = itemNode;
 	}
 
@@ -48,7 +49,20 @@ bool Scene::Start()
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	
 	// L03: DONE: Load map
-	app->map->Load();
+	//app->map->Load();
+
+	char* buffer;
+	pugi::xml_document file;
+
+	int bytes = app->assetsManager->LoadData("data.xml", &buffer);
+
+	pugi::xml_parse_result result = file.load_buffer(buffer, bytes);
+
+	RELEASE_ARRAY(buffer);
+
+	LoadTexFile(file);
+	LoadFxFile(file);
+	LoadMusFile(file);
 
 	// L04: DONE 7: Set the window title with map/tileset info
 	SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
@@ -116,4 +130,23 @@ bool Scene::CleanUp()
 	LOG("Freeing scene");
 
 	return true;
+}
+
+void Scene::LoadTexFile(const pugi::xml_document& dataFile)
+{
+	pugi::xml_node tex = dataFile.child("data").child("texture");
+	item->texture = app->tex->Load(tex.attribute("file").as_string());
+	player->texture = app->tex->Load(tex.attribute("file2").as_string());
+}
+
+void Scene::LoadFxFile(const pugi::xml_document& dataFile)
+{
+	pugi::xml_node fx = dataFile.child("data").child("fx");
+	app->audio->LoadFx(fx.attribute("file").as_string());
+}
+
+void Scene::LoadMusFile(const pugi::xml_document& dataFile)
+{
+	pugi::xml_node mus = dataFile.child("data").child("mus");
+	app->audio->PlayMusic(mus.attribute("file").as_string());
 }

@@ -24,10 +24,10 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	// Return the bytes of a PhysFS filehandle
+	// Return the number of bytes of a PhysFS file that you send it
 	uint LoadData(const char* path, char** buffer) const;
 
-	// Allows you to use pointers to memory instead of files or things such as images or samples
+	// Allows you to enter a path and extract a image or audio form it, or any kind of archive except form XML
 	SDL_RWops* Load(const char* path) const;
 
 };

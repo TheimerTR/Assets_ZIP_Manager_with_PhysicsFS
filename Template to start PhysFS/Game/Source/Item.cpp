@@ -19,7 +19,7 @@ bool Item::Awake() {
 
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
-	texturePath = parameters.attribute("texturepath").as_string();
+	//texturePath = parameters.attribute("texturepath").as_string();
 
 	return true;
 }
@@ -27,7 +27,7 @@ bool Item::Awake() {
 bool Item::Start() {
 
 	//initilize textures
-	texture = app->tex->Load(texturePath);
+	//texture = app->tex->Load(texturePath);
 	return true;
 }
 

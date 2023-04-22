@@ -4,6 +4,8 @@
 #include "Defs.h"
 #include "Log.h"
 
+#include "AssetsManager.h"
+
 // NOTE: Recommended using: Additional Include Directories,
 // instead of 'hardcoding' library location path in code logic
 #include "SDL/include/SDL.h"
@@ -107,7 +109,8 @@ bool Audio::PlayMusic(const char* path, float fadeTime)
 		Mix_FreeMusic(music);
 	}
 
-	music = Mix_LoadMUS(path);
+	//TODO 6: Use Mix_LoadMUS_RW to read from the PhysicsFS and not from common assets folder
+	music = Mix_LoadMUS_RW(app->assetsManager->Load(path), 1);
 
 	if(music == NULL)
 	{
@@ -146,7 +149,8 @@ unsigned int Audio::LoadFx(const char* path)
 	if(!active)
 		return 0;
 
-	Mix_Chunk* chunk = Mix_LoadWAV(path);
+	//TODO 6: Use Mix_LoadWAV_RW to read from the PhysicsFS and not from common assets folder
+	Mix_Chunk* chunk = Mix_LoadWAV_RW(app->assetsManager->Load(path), 1);;
 
 	if(chunk == NULL)
 	{

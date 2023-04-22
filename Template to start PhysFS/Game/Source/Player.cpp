@@ -26,7 +26,7 @@ bool Player::Awake() {
 	//L02: DONE 5: Get Player parameters from XML
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
-	texturePath = parameters.attribute("texturepath").as_string();
+	//texturePath = parameters.attribute("texturepath").as_string();
 
 	return true;
 }
@@ -34,7 +34,7 @@ bool Player::Awake() {
 bool Player::Start() {
 
 	//initilize textures
-	texture = app->tex->Load(texturePath);
+	//texture = app->tex->Load(texturePath);
 	return true;
 }
 

@@ -4,6 +4,7 @@
 
 #include "Defs.h"
 #include "Log.h"
+#include "AssetsManager.h"
 
 #include "SDL_image/include/SDL_image.h"
 //#pragma comment(lib, "../Game/Source/External/SDL_image/libx86/SDL2_image.lib")
@@ -64,9 +65,28 @@ bool Textures::CleanUp()
 SDL_Texture* const Textures::Load(const char* path)
 {
 	SDL_Texture* texture = NULL;
+	//TODO 6: Use IMG_Load_RW to read from the PhysicsFS and not from common assets folder
+	SDL_Surface* surface = IMG_Load_RW(app->assetsManager->Load(path), 1);
+	
+	if(surface == NULL)
+	{
+		LOG("Could not load surface with path: %s. IMG_Load: %s", path, IMG_GetError());
+	}
+	else
+	{
+		texture = LoadSurface(surface);
+		SDL_FreeSurface(surface);
+	}
+
+	return texture;
+}
+
+SDL_Texture* const Textures::LoadMAP(const char* path)
+{
+	SDL_Texture* texture = NULL;
 	SDL_Surface* surface = IMG_Load(path);
 
-	if(surface == NULL)
+	if (surface == NULL)
 	{
 		LOG("Could not load surface with path: %s. IMG_Load: %s", path, IMG_GetError());
 	}
