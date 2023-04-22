@@ -157,7 +157,7 @@ Finally, we will allocate memory with the size of the file to the buffer, things
 
 Now we will read the data with a physFS file, for this is needed:
 
-- uint ... //to save into it the number of objects readed form the physFS file
+- uint ... //to save into it the number of objects readed from the physFS file
 
 - PHYSFS_read(..., ..., 1, ...) //the function that will read the file with PhysFS, return the number of objects readed
 
