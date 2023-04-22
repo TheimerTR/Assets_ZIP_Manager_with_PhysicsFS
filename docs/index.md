@@ -186,7 +186,7 @@ Now load the data from memory and save it, you will need:
 
 - pugi::xml_parse_result ... //where you will save the data
 
-- (...).load_buffer(buffer, ...) //the function that will charge the things form memory
+- (...).load_buffer(buffer, ...) //the function that will charge the things from memory
 
 Finally we will RELEASE the buffer (like: RELEASE_ARRAY(buffer)), and load all of the assets of our game:
 
