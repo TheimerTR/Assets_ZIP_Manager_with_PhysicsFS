@@ -43,6 +43,8 @@ public:
 	//load and play the music
 	void LoadMusFile(const pugi::xml_document& dataFile);
 
+	void LoadMapFile(const pugi::xml_document& dataFile);
+
 public:
 
 	//L02: DONE 3: Declare a Player attribute 

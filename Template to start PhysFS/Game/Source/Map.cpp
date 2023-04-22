@@ -247,7 +247,7 @@ bool Map::LoadTileSet(pugi::xml_node mapFile){
     pugi::xml_node tileset;
     for (tileset = mapFile.child("map").child("tileset"); tileset && ret; tileset = tileset.next_sibling("tileset"))
     {
-        TileSet* set = new TileSet();
+        set = new TileSet();
 
         // L04: DONE 4: Load Tileset attributes
         set->name = tileset.attribute("name").as_string();
@@ -261,7 +261,7 @@ bool Map::LoadTileSet(pugi::xml_node mapFile){
 
         // L04: DONE 4: Load Tileset image
         SString tmp("%s%s", mapFolder.GetString(), tileset.child("image").attribute("source").as_string());
-        set->texture = app->tex->LoadMAP(tmp.GetString());
+        set->texture = app->tex->Load(tmp.GetString());
 
         mapData.tilesets.Add(set);
     }

@@ -129,11 +129,12 @@ public:
 
 	// L04: DONE 1: Declare a variable data of the struct MapData
 	MapData mapData;
+	TileSet* set;
+	SString mapFileName;
+	SString mapFolder;
 
 private:
 
-    SString mapFileName;
-	SString mapFolder;
     bool mapLoaded;
 };
 
