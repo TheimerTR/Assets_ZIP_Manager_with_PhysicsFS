@@ -97,9 +97,9 @@ Mid box:
 
 **TODO 1:**
 
-Into the PhysicsFSAssetManager.cpp will initialize the PhysicsFS Library API, destroy it and also mount the Assets. Here you have to make sure that everything is ok, and don’t give any errors. 
+Into the AssetManager.cpp will initialize the PhysicsFS Library API, destroy it and also mount the Assets. Here you have to make sure that everything is ok, and don’t give any errors. 
 
-You will need this functions on the ModuleAssetsManager():
+You will need this functions on the AssetsManager():
 
 - PHYSFS_init(NULL)
 - PHYSFS_mount(“Name of the asset folder.zip”, NULL, 1)
