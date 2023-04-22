@@ -11,7 +11,7 @@ For that last point, optimization is a primary thing to take into consideration 
 PhysicsFS is a program developed by Ryan C. Gordon, also known as Icculus. The first iteration of it was made in inspiration of Quake 3, which implemented an archive subsystem  that optimized the process of accessing information. 
 
 ![diagram1](https://raw.githubusercontent.com/TheimerTR/PhysicsFS_Personal_Project/blob/main/docs/images/Rayan_repo_git.png)
-![diagram1](https://raw.githubusercontent.com/TheimerTR/PhysicsFS_Personal_Project/blob/main/docs/images/Rar.png)
+![diagram2](https://raw.githubusercontent.com/TheimerTR/PhysicsFS_Personal_Project/blob/main/docs/images/Rar.png)
 
 An example of it is like, imagine that you have a folder on your computer where you store all the files of your game. Inside that folder there are other folders with images, sounds, maps and other things. There are also some compressed files like .ZIP or .7z that contain more files inside. PhysicsFS is a tool that helps you organize and access all those files in an easy and safe way. With PhysicsFS you can tell your game where it can save new things (like your saved games or your options) and where it can read things that already exist (like the images or the sounds). Also, you can use the compressed files as if they were normal folders, without having to decompress them first. This way you save space and time. To use PhysicsFS in your game, you have to tell it at the beginning what folder you want to use to save things and what folders or compressed files you want to use to read things. Then you can open any file you want using a simple name, no matter where it is actually or if it is compressed or not.
 
