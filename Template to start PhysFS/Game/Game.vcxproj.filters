@@ -19,9 +19,7 @@
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Item.cpp" />
     <ClCompile Include="Source\Map.cpp" />
-    <ClCompile Include="..\..\PhysFS_Roger_Salas-1.0\PhysFS_Handout_Solution\Motor2D\AssetsManager.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
+    <ClCompile Include="Source\AssetsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -64,9 +62,7 @@
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\Map.h" />
-    <ClInclude Include="..\..\PhysFS_Roger_Salas-1.0\PhysFS_Handout_Solution\Motor2D\AssetsManager.h">
-      <Filter>External</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\AssetsManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

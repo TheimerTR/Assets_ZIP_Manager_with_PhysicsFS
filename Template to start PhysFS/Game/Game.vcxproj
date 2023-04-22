@@ -95,7 +95,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\PhysFS_Roger_Salas-1.0\PhysFS_Handout_Solution\Motor2D\AssetsManager.cpp" />
+    <ClCompile Include="Source\AssetsManager.cpp" />
     <ClCompile Include="Source\EntityManager.cpp" />
     <ClCompile Include="Source\Item.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -108,7 +108,7 @@
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
     <ClCompile Include="Source\Window.cpp" />
-    <ClInclude Include="..\..\PhysFS_Roger_Salas-1.0\PhysFS_Handout_Solution\Motor2D\AssetsManager.h" />
+    <ClInclude Include="Source\AssetsManager.h" />
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\EntityManager.h" />
     <ClInclude Include="Source\Item.h" />
