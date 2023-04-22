@@ -53,7 +53,7 @@ bool Scene::Start()
 	pugi::xml_document file;
 
 	////Uncoment all once
-	////TODO 5: LoadData from the "data.xml", and send the buffer too
+	////TODO 5: Load data from the "data.xml" with the function LoadData(), and send the buffer too
 	////int bytes = ;
 	
 	////Here we will make the space in memory that needs the program to open the files

@@ -52,7 +52,7 @@ bool Scene::Start()
 	char* buffer;
 	pugi::xml_document file;
 
-	//TODO 5 (Solved): LoadData from the "data.xml", and send the buffer too
+	//TODO 5 (Solved): Load data from the "data.xml" with the function LoadData(), and send the buffer too
 	int bytes = app->assetsManager->LoadData("data.xml", &buffer);
 
 	//Here we will make the space in memory that needs the program to open the files

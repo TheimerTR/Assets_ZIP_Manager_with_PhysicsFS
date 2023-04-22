@@ -37,7 +37,7 @@ AssetsManager::~AssetsManager()
 
 bool AssetsManager::Awake(pugi::xml_node& config)
 {
-	//TODO 2 (Solved): Now add the path to search our Assets folder that now is .zip
+	//TODO 2 (Solved): Now add the path to search our Assets folder that is a .zip
 	//HINT: The path is the same that we actually are: Output -> Assets.zip
 	if (PHYSFS_addToSearchPath("Assets.zip", 1) == 0) 
 	{
