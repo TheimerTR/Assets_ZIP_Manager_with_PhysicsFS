@@ -171,7 +171,7 @@ And finally we close the PhysFS file with:
 
 **TODO 5:**
 
-Now that we know how work our function, it's time tu use them. Firstly, will create in the start functon of the scene.cpp:
+Now that we know how work our function, it's time to use them. Firstly, will create in the start function of the scene.cpp:
 
 - char* buffer
 - pugi::xml_document ...
@@ -182,7 +182,7 @@ And next, will call the LoadData() function of the AssetsManager.cpp, and save t
 
 - app->assetsManager->LoadData("data.xml", &buffer) //That data.xml file, is a type of file that saves the things that are included inside the Assets folder in a .xml.
 
-Now load the data form memory and save it, you will need:
+Now load the data from memory and save it, you will need:
 
 - pugi::xml_parse_result ... //where you will save the data
 
