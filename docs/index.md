@@ -143,7 +143,7 @@ Next we will open the read file in the LoadData(), to open you will need:
 
 Now it's open, will check if the data file is open correctly and no nullptr. If is not null, inside we will extract the file length in bytes, the tool to do it:
 
-- int ... //to save the number of bytes
+- unit ... //to save the number of bytes
 
 - PHYSFS_fileLength(...) //to read the size of bytes of the data file.
 
@@ -151,7 +151,7 @@ Finally, we will allocate memory with the size of the file to the buffer, things
 
 - buffer //the actual buffer that the function gives
 
-- new char[(uint)...] //the size of the file in a char style
+- new char[...] //the size of the file in a char style
 
 **TODO 4:**
 
@@ -159,9 +159,13 @@ Now we will read the data with a physFS file, for this is needed:
 
 - uint ... //to save into it the number of objects readed form the physFS file
 
-- PHYSFS_read(..., ..., 1, (uint)...) //the function that will read the file with PhysFS, return the number of objects readed
+- PHYSFS_read(..., ..., 1, ...) //the function that will read the file with PhysFS, return the number of objects readed
 
-Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in that yes, will return to the function the number of objects readed with PhysFS, and close the data file with:
+Next we will check if the size of the file is the same that the size of the file opened by PhysFS, in case that not, we will RELEASE the buffer, in that yes, will return to the function the number of objects readed with PhysFS:
+
+- ret = numReaded
+
+And finally we close the PhysFS file with:
 
 - PHYSFS_close(...)
 
