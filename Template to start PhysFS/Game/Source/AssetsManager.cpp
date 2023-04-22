@@ -2,7 +2,7 @@
 #include "AssetsManager.h"
 
 
-ModuleAssetsManager::ModuleAssetsManager() : Module()
+AssetsManager::AssetsManager() : Module()
 {
 	name = ("assetsManager");
 	
@@ -18,13 +18,13 @@ ModuleAssetsManager::ModuleAssetsManager() : Module()
 }
 
 
-ModuleAssetsManager::~ModuleAssetsManager()
+AssetsManager::~AssetsManager()
 {
 	/*TODO 1: close any file open for physFS*/
 	PHYSFS_deinit();
 }
 
-bool ModuleAssetsManager::Awake(pugi::xml_node& config)
+bool AssetsManager::Awake(pugi::xml_node& config)
 {
 	/*TODO 2: add the search path*/
 	PHYSFS_addToSearchPath("Assets.zip", 1);
@@ -33,12 +33,12 @@ bool ModuleAssetsManager::Awake(pugi::xml_node& config)
 }
 
 
-bool ModuleAssetsManager::CleanUp()
+bool AssetsManager::CleanUp()
 {
 	return false;
 }
 
-SDL_RWops* ModuleAssetsManager::Load(const char* path) const
+SDL_RWops* AssetsManager::Load(const char* path) const
 {
 	char* buffer;
 	uint bytes = LoadData(path, &buffer); //get the size of the data from the function Load Data
@@ -57,7 +57,7 @@ SDL_RWops* ModuleAssetsManager::Load(const char* path) const
 }
 
 
-uint ModuleAssetsManager::LoadData(const char* path, char** buffer) const
+uint AssetsManager::LoadData(const char* path, char** buffer) const
 {
 	uint ret = 0;
 	

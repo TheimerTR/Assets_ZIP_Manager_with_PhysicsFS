@@ -8,15 +8,15 @@
 
 #pragma comment( lib, "PhysFS/libx86/physfs.lib" )
 
-class ModuleAssetsManager : public Module
+class AssetsManager : public Module
 {
 public:
 
 	// Constructor
-	ModuleAssetsManager();
+	AssetsManager();
 
 	// Destructor
-	~ModuleAssetsManager();
+	~AssetsManager();
 
 	// Called before render is available
 	bool Awake(pugi::xml_node&);
