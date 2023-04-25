@@ -39,6 +39,13 @@ And in relation with it, some graphic engines used it to like:
 - LÖVE - Free 2D Game Engine (love2d.org)
 - OGRE - Open Source 3D Graphics Engine
 
+## Alternatives to PhysFS
+
+- <a href="https://cpp.libhunt.com/zstd-alternatives">*ZSTD* from Meta</a>
+- <a href="https://cpp.libhunt.com/brotli-alternatives">*Brotli* from Google</a>
+- <a href="https://cpp.libhunt.com/lzfse-alternatives">*LZFSE* from Apple</a>
+- <a href="https://cpp.libhunt.com/lz4-alternatives">*LZ4* from LZ4</a>
+
 ## Platform support
 
 Here is a list from PhysicsFS (icculus.org) that shows the compatibility of that library:
@@ -243,3 +250,5 @@ Now we will load some Images, music and fx, to do that we will charge them with 
 <a href="https://gregfmartin.wordpress.com/2017/01/02/physicsfsphysfs-basic-tutorial/">*PhysicsFS/PhysFS++ Tutorial – Gregory F. Martin (wordpress.com)*</a>
 
 <a href="https://github.com/Draquian/PhysFS_Roger_Salas/tree/1.0">*PhysFS_Roger_Salas (github.com)*</a>
+
+<a href="https://cpp.libhunt.com/physfs-cpp-alternatives">*Alternatives PhysFS*</a>
